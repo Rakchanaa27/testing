@@ -1,0 +1,29 @@
+openapi: 3.0.1
+info:
+  title: tel-employeeDetails-api
+  description: API Definition of tel-employeeDetails-api
+  version: 1.0.0
+servers:
+- url: http://localhost:8290/tel/employeeDetails
+- url: https://localhost:8253/tel/employeeDetails
+paths:
+  /apply:
+    post:
+      requestBody:
+        description: Sample Payload
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                payload:
+                  type: object
+          application/xml:
+            schema:
+              type: object
+              xml:
+                name: payload
+        required: false
+      responses:
+        default:
+          description: Default response

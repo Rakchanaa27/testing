@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<api xmlns="http://ws.apache.org/ns/synapse"
+     name="tel-employee-details-v1-customer-api"
+     context="/customer">
+
+ 
+    <!-- 2. XML to JSON Transformation -->
+ 
+    <resource methods="POST" uri-template="/apply">
+ 
+        <inSequence>
+ 
+            <sequence key="tel-employee-details-v1-post-transformation-sequence"/>
+ 
+        </inSequence>
+ 
+        <faultSequence>
+            <property name="HTTP_SC"
+                      value="500"
+                      scope="axis2"
+                      type="INTEGER"/>
+ 
+            <payloadFactory media-type="json">
+                <format>
+                    {
+                        "status": "ERROR",
+                        "message": "Customer XML to JSON transformation failed"
+                    }
+                </format>
+                <args/>
+            </payloadFactory>
+ 
+            <respond/>
+ 
+        </faultSequence>
+ 
+    </resource>
+ 
+ 
+    <!-- 3. JSON to XML Transformation -->
+ 
+    <resource methods="POST" uri-template="/status">
+ 
+        <inSequence>
+ 
+            <sequence key="tel-employee-details-v1-post-transformations-sequence"/>
+ 
+        </inSequence>
+ 
+        <faultSequence>
+ 
+            <property name="HTTP_SC"
+                      value="500"
+                      scope="axis2"
+                      type="INTEGER"/>
+ 
+            <payloadFactory media-type="json">
+                <format>
+                    {
+                        "status": "ERROR",
+                        "message": "Customer JSON to XML transformation failed"
+                    }
+                </format>
+                <args/>
+            </payloadFactory>
+ 
+            <respond/>
+ 
+        </faultSequence>
+ 
+    </resource>
+ 
+</api>
+ 

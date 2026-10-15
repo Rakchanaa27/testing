@@ -1,0 +1,8 @@
+{
+  "Customer": {
+    "CustomerID": "CUST103",
+    "CustomerName": "Priya",
+    "Email": "priya@example.com",
+    "Phone": "9876512340"
+  }
+}

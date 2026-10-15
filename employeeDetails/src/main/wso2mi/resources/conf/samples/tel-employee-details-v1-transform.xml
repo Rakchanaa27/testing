@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Customer>
+    <CustomerID>CUST101</CustomerID>
+    <CustomerName>Rakchanaa</CustomerName>
+    <Email>rakchanaa@example.com</Email>
+    <Phone>9876543210</Phone>
+    <Address>
+        <City>Coimbatore</City>
+        <State>Tamil Nadu</State>
+        <Country>India</Country>
+    </Address>
+</Customer>

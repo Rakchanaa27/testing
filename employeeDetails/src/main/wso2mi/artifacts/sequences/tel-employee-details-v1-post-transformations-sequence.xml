@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<sequence name="tel-employee-details-v1-post-transformations-sequence"
+          xmlns="http://ws.apache.org/ns/synapse">
+ 
+    
+    <property name="messageType"
+              value="application/json"
+              scope="axis2"
+              type="STRING"/>
+ 
+    <property name="ContentType"
+              value="application/json"
+              scope="axis2"
+              type="STRING"/>
+ 
+   
+ 
+    <respond/>
+ 
+</sequence>
+ 
