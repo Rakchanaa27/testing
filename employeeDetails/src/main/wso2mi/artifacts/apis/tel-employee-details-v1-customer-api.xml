@@ -4,6 +4,49 @@
      name="tel-employee-details-v1-customer-api"
      context="/customer">
 
+      <!-- 1. XSLT Transformation -->
+ 
+    <resource methods="POST" uri-template="/xslt">
+ 
+        <inSequence>
+ 
+            <log level="custom">
+                <property name="API"
+                          value="Customer XSLT API"/>
+            </log>
+ 
+            <sequence key="tel-employee-details-v1-post-xslt-sequence"/>
+ 
+        </inSequence>
+ 
+        <faultSequence>
+ 
+            <log level="full">
+                <property name="ERROR"
+                          value="Customer XSLT Transformation Failed"/>
+            </log>
+ 
+            <property name="HTTP_SC"
+                      value="500"
+                      scope="axis2"
+                      type="INTEGER"/>
+ 
+            <payloadFactory media-type="json">
+                <format>
+                    {
+                        "status": "ERROR",
+                        "message": "Customer XSLT transformation failed"
+                    }
+                </format>
+                <args/>
+            </payloadFactory>
+ 
+            <respond/>
+ 
+        </faultSequence>
+ 
+    </resource>
+
  
     <!-- 2. XML to JSON Transformation -->
  
